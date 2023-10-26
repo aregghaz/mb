@@ -84,7 +84,7 @@ class EventsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Events $events)
+    public function destroy(Events $events,$id)
     {
            $news =  News::where('id', $id)->limit(1)->delete();
                     return response()->json([

@@ -84,7 +84,7 @@ class NewsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(News $news)
+    public function destroy(News $news,$id)
     {
          $news =  News::where('id', $id)->limit(1)->delete();
             return response()->json([
