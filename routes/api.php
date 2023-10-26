@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\EventsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
