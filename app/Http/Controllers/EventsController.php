@@ -39,9 +39,15 @@ class EventsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Events $events)
+    public function show(Events $events, $id)
     {
-        //
+
+        $data = Events::where("id" , $id)->limit(1)->get();
+                return response()->json([
+                  "news" => count($data) > 0 ? $data[0] : [],
+                  "status" => 200,
+                ], 200);
+
     }
 
     /**

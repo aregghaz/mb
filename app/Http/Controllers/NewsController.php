@@ -39,9 +39,14 @@ class NewsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(News $news)
+    public function show(News $news,$id)
     {
-        //
+
+        $data = News::where("id" , $id)->limit(1)->get();
+                return response()->json([
+                  "news" => count($data) > 0 ? $data[0] : [],
+                  "status" => 200,
+                ], 200);
     }
 
     /**
