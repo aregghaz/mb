@@ -23,9 +23,17 @@ class NewsController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $news = new News();
+        $news->title= $request->title;
+        $news->description= $request->description;
+        $news->image= $request->image;
+        $news->save();
+
+        return response()->json([
+          "status" => 200,
+        ], 200);
     }
 
     /**

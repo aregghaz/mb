@@ -32,9 +32,16 @@ class EventsController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+                             {
+                                 $event = new Events();
+                                 $event->title= $request->title;
+                                 $event->description= $request->description;
+                                 $event->start_date= $request->start_date;
+                                 $event->save();
+
+                                 return response()->json([
+                                   "status" => 200,
+                                 ], 200);
 
     /**
      * Display the specified resource.

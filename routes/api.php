@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/news/{limit}', [NewsController::class, 'index']);
 Route::get('/news-by-id/{id}', [NewsController::class, 'show']);
+Route::post('/news-create', [NewsController::class, 'create']);
 Route::get('/event-by-id/{id}', [EventsController::class, 'show']);
+Route::post('/event-create', [EventsController::class, 'store']);
 Route::get('/event/{limit}', [EventsController::class, 'index']);
 
 
