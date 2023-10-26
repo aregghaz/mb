@@ -68,9 +68,17 @@ class NewsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, News $news)
+    public function update(Request $request, News $news,$id)
     {
-        //
+        $news =  News::where('id', $id)->limit(1)->get();
+                $news->title= $request->title;
+                $news->description= $request->description;
+                $news->image= $request->image;
+                $news->update();
+
+                return response()->json([
+                  "status" => 200,
+                ], 200);
     }
 
     /**
@@ -78,6 +86,9 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        //
+         $news =  News::where('id', $id)->limit(1)->delete();
+            return response()->json([
+                           "status" => 200,
+                         ], 200);
     }
 }

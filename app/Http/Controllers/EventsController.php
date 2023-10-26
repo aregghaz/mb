@@ -68,9 +68,17 @@ class EventsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Events $events)
+    public function update(Request $request, Events $events,$id)
     {
-        //
+        $event =  Events::where('id', $id)->limit(1)->get();
+                      $event->title= $request->title;
+                      $event->description= $request->description;
+                      $event->image= $request->image;
+                      $event->update();
+
+                      return response()->json([
+                        "status" => 200,
+                      ], 200);
     }
 
     /**
@@ -78,6 +86,9 @@ class EventsController extends Controller
      */
     public function destroy(Events $events)
     {
-        //
+           $news =  News::where('id', $id)->limit(1)->delete();
+                    return response()->json([
+                                   "status" => 200,
+                                 ], 200);
     }
 }
