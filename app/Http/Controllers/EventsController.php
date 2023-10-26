@@ -10,9 +10,14 @@ class EventsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($limit)
     {
-        //
+              $data = Events::limit($limit)->get();
+
+                return response()->json([
+                  "news" => $data,
+                  "status" => 200,
+                ], 200);
     }
 
     /**
