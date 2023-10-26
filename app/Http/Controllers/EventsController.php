@@ -15,7 +15,7 @@ class EventsController extends Controller
               $data = Events::limit($limit)->get();
 
                 return response()->json([
-                  "news" => $data,
+                  "data" => $data,
                   "status" => 200,
                 ], 200);
     }
@@ -44,7 +44,7 @@ class EventsController extends Controller
 
         $data = Events::where("id" , $id)->limit(1)->get();
                 return response()->json([
-                  "news" => count($data) > 0 ? $data[0] : [],
+                  "data" => count($data) > 0 ? $data[0] : [],
                   "status" => 200,
                 ], 200);
 

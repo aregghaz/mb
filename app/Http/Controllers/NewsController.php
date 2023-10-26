@@ -15,7 +15,7 @@ class NewsController extends Controller
        $data = News::limit($limit)->get();
 
         return response()->json([
-          "news" => $data,
+          "data" => $data,
           "status" => 200,
         ], 200);
     }
@@ -44,7 +44,7 @@ class NewsController extends Controller
 
         $data = News::where("id" , $id)->limit(1)->get();
                 return response()->json([
-                  "news" => count($data) > 0 ? $data[0] : [],
+                  "data" => count($data) > 0 ? $data[0] : [],
                   "status" => 200,
                 ], 200);
     }
